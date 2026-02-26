@@ -5,8 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React from "react";
 import NavBar from './NavBar';
-import HelloBar from './components/HelloBar'; 
+import HelloBar from './components/HelloBar';
 import Script from 'next/script';
+
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -43,7 +44,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ConvertIno | Free Unlimited Image Converter',
     description: 'Fast, secure, and 100% free online image converter. No registration required.',
-  }
+  },
+  verification: {
+    google: 'googleef6c7884532d40e8.html',
+  },
 };
 
 export default function RootLayout({
@@ -56,7 +60,6 @@ export default function RootLayout({
       <body className="bg-zinc-900 text-gray-100 min-h-screen transition-colors antialiased flex flex-col"
             suppressHydrationWarning>
         
-        {/* Replace G-XXXXXXXXXX with your actual Measurement ID */}
         <Script 
           strategy="afterInteractive" 
           src={`https://www.googletagmanager.com/gtag/js?id=G-MS3WQ12X24`} 
@@ -71,6 +74,7 @@ export default function RootLayout({
             });
           `}
         </Script>
+
         {/* TOP ANNOUNCEMENT BAR */}
         <HelloBar />
 
