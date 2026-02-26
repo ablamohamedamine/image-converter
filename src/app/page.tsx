@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import ImageConverter from './ImageConverter';
-import emailjs from 'emailjs-com';
+import FeaturesGrid, { Feature } from '@/app/components/FeaturesGrid';
+import FloatingBackground from '@/app/components/FloatingBackground';
 
 export default function Home() {
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>("idle");
-  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     // Create intersection observer for scroll-triggered animations
@@ -16,10 +15,6 @@ export default function Home() {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in-up');
             entry.target.classList.remove('opacity-0', 'translate-y-8');
-          } else {
-            // Optional: Remove animation when element goes out of view
-            // entry.target.classList.remove('animate-fade-in-up');
-            // entry.target.classList.add('opacity-0', 'translate-y-8');
           }
         });
       },
@@ -40,7 +35,7 @@ export default function Home() {
     };
   }, []);
 
-  const features = [
+  const features: Feature[] = [
     {
       title: "Bulk Upload",
       icon: (
@@ -69,6 +64,24 @@ export default function Home() {
       description: "Adjustable compression levels to balance quality and file size"
     },
     {
+      title: "No Account Needed",
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      ),
+      description: "Start converting instantly. We don't ask for your email, and there's no login required."
+    },
+    {
+      title: "Privacy First",
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
+      description: "All processing happens in your browser - your images never leave your device"
+    },
+    {
       title: "Real-time Preview",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,15 +101,6 @@ export default function Home() {
       description: "Download individual files or a ZIP archive of all converted images"
     },
     {
-      title: "Privacy First",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-      description: "All processing happens in your browser - your images never leave your device"
-    },
-    {
       title: "Mobile Friendly",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,25 +113,9 @@ export default function Home() {
 
   return (
     <main className="w-full flex flex-col items-center px-2 relative overflow-hidden">
-      {/* Floating background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/10 rounded-full blur-xl animate-float-slow"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl animate-float-medium"></div>
-        <div className="absolute bottom-40 left-20 w-16 h-16 bg-pink-500/10 rounded-full blur-xl animate-float-fast"></div>
-        <div className="absolute top-60 left-1/2 w-24 h-24 bg-blue-400/10 rounded-full blur-xl animate-float-slow"></div>
-      </div>
 
-      {/* Floating icons */}
-      <div className="absolute top-32 left-8 animate-float-slow">
-        <div className="text-4xl opacity-20">🖼️</div>
-      </div>
-      <div className="absolute top-48 right-12 animate-float-medium">
-        <div className="text-3xl opacity-20">⚡</div>
-      </div>
-      <div className="absolute bottom-32 left-16 animate-float-fast">
-        <div className="text-2xl opacity-20">🎯</div>
-      </div>
-
+      <FloatingBackground />
+      
       <section className="w-full max-w-4xl text-center mt-16 mb-12 relative z-10 scroll-animate opacity-0 translate-y-8">
         <div className="relative">
           {/* Animated underline effect */}
@@ -143,7 +131,7 @@ export default function Home() {
         <p className="text-xl sm:text-2xl text-gray-300 mb-8 leading-relaxed">
           Convert and compress images instantly. Bulk upload, format conversion, and compression.
           <br />
-          <span className="text-blue-400 font-semibold animate-glow">100% free and unlimited.</span>
+          <span className="text-blue-400 font-semibold animate-glow">100% free, unlimited and without registration.</span>
         </p>
         
         <div>
@@ -182,150 +170,52 @@ export default function Home() {
           Powerful Features
         </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="group relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-700 rounded-xl p-6 hover:border-zinc-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl scroll-animate opacity-0 translate-y-8 flex flex-col h-full"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Gradient border effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <div className="relative z-10 flex flex-col h-full items-center text-center">
-                {/* Icon */}
-                <div className="w-16 h-16 mb-4 rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-700 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                
-                {/* Content */}
-                <h3 className="text-xl font-bold mb-3 text-gray-200 group-hover:text-white transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors flex-grow">
-                  {feature.description}
-                </p>
-                
-                {/* Hover effect line */}
-                <div className="w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 mt-4 group-hover:w-full transition-all duration-500"></div>
-              </div>
-            </div>
-          ))}
+        <FeaturesGrid features={features} />
+      </section>
+
+      {/* NEW SEO SECTION */}
+      <section className="w-full max-w-4xl mx-auto mb-20 relative z-10 scroll-animate opacity-0 translate-y-8 px-4 md:px-0">
+        <div className="bg-zinc-900/40 backdrop-blur-md border border-zinc-700/50 rounded-2xl p-8 md:p-10 shadow-xl text-left">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-100 mb-6">
+            The Best Free Online Image Converter
+          </h2>
+          
+          <div className="space-y-6 text-gray-300 leading-relaxed">
+            <p>
+              Welcome to <strong>ConvertIno</strong>, your ultimate destination for fast, secure, and limitless image conversion. 
+              Whether you need to convert high-resolution photos, optimize web assets, or simply change an image format, 
+              our completely free tool has you covered. Built for developers, designers, and everyday users.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-200 mt-8 mb-4">
+              No Registration or Email Required
+            </h3>
+            <p>
+              We believe in frictionless tools. With ConvertIno, you can start converting your images instantly <strong>without signing up, creating an account, or providing your email address</strong>. 
+              There are no hidden paywalls, no annoying newsletters, and no login barriers—just drag and drop your files to get started right away.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-200 mt-8 mb-4">
+              Convert WebP, PNG, JPEG, AVIF, and SVG effortlessly
+            </h3>
+            <p>
+              Modern web development and digital design require modern image formats. ConvertIno allows you to seamlessly transition between 
+              standard formats like <strong>JPEG</strong> and <strong>PNG</strong>, to next-generation formats like <strong>WebP</strong> and <strong>AVIF</strong>. 
+              By utilizing our advanced compression algorithms, you can significantly reduce file sizes without sacrificing visual quality—boosting your website's SEO and performance.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-200 mt-8 mb-4">
+              100% Secure & Private Client-Side Processing
+            </h3>
+            <p>
+              Unlike traditional image converters that force you to upload your sensitive files to a remote cloud server, 
+              ConvertIno processes everything directly inside your web browser. This means your files <strong>never leave your device</strong>. 
+              Enjoy lightning-fast conversions with absolute peace of mind knowing your privacy is fully protected and there are no file-size limits holding you back.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="w-full max-w-4xl mb-20 relative z-10 scroll-animate opacity-0 translate-y-8">
-        <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Get In Touch</h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-200">Let&apos;s Connect</h3>
-              <p className="text-gray-400 mb-6">Have questions, suggestions, or want to collaborate? We&apos;d love to hear from you!</p>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-blue-400">📧</span>
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">Email</div>
-                  <a href="billel.chami.dev@gmail.com" className="text-blue-400 hover:text-blue-300 transition">billel.chami.dev@gmail.com</a>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                  {/* LinkedIn SVG icon */}
-                  <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
-                </div>
-                <div>
-                  <div className="font-medium text-gray-200">LinkedIn</div>
-                  <a href="https://www.linkedin.com/in/billal-chami/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition">Connect on LinkedIn</a>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div>
-            <form 
-              ref={formRef}
-              className="space-y-4"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                setFormStatus('sending');
-                try {
-                  await emailjs.sendForm(
-                    'service_iigpica', // <-- Replace with your EmailJS service ID
-                    'template_vdktank', // <-- Replace with your EmailJS template ID
-                    formRef.current!,
-                    'dVdFc5R-_JsiC4aNE' // <-- Replace with your EmailJS public key
-                  );
-                  setFormStatus('success');
-                  formRef.current?.reset();
-                } catch {
-                  setFormStatus('error');
-                }
-              }}
-            >
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
-                  placeholder="Tell us what's on your mind..."
-                  required
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105 disabled:opacity-60"
-                disabled={formStatus === 'sending'}
-              >
-                {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
-              </button>
-              {formStatus === 'success' && (
-                <div className="mt-2 text-green-400 text-center">Message sent successfully!</div>
-              )}
-              {formStatus === 'error' && (
-                <div className="mt-2 text-red-400 text-center">Failed to send message. Please try again.</div>
-              )}
-            </form>
-          </div>
-    </div>
-      </section>
     </main>
   );
 }
