@@ -8,7 +8,6 @@ import NavBar from './NavBar';
 import HelloBar from './components/HelloBar';
 import Script from 'next/script';
 
-
 const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -44,10 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ConvertIno | Free Unlimited Image Converter',
     description: 'Fast, secure, and 100% free online image converter. No registration required.',
-  },
-  verification: {
-    google: '94wezaCKdI7AeRjZ7aVJT7x6UPfGQg5toFkbRHky3kY',
-  },
+  }
 };
 
 export default function RootLayout({
@@ -60,6 +56,7 @@ export default function RootLayout({
       <body className="bg-zinc-900 text-gray-100 min-h-screen transition-colors antialiased flex flex-col"
             suppressHydrationWarning>
         
+        {/* GOOGLE ANALYTICS */}
         <Script 
           strategy="afterInteractive" 
           src={`https://www.googletagmanager.com/gtag/js?id=G-MS3WQ12X24`} 
@@ -72,6 +69,28 @@ export default function RootLayout({
             gtag('config', 'G-MS3WQ12X24', {
               page_path: window.location.pathname,
             });
+          `}
+        </Script>
+
+        {/* KO-FI FLOATING WIDGET */}
+        <Script 
+          src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js" 
+          strategy="lazyOnload" 
+        />
+        <Script id="kofi-widget" strategy="lazyOnload">
+          {`
+            // We use an interval to safely check when the Ko-fi external script finishes loading
+            const kofiInterval = setInterval(() => {
+              if (typeof kofiWidgetOverlay !== 'undefined') {
+                clearInterval(kofiInterval);
+                kofiWidgetOverlay.draw('ablamohamedamine', {
+                  'type': 'floating-chat',
+                  'floating-chat.donateButton.text': 'Support Us',
+                  'floating-chat.donateButton.background-color': '#ff38b8',
+                  'floating-chat.donateButton.text-color': '#fff'
+                });
+              }
+            }, 500);
           `}
         </Script>
 

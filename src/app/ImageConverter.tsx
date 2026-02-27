@@ -552,6 +552,31 @@ export default function ImageConverter({ fixedInputFormat, fixedOutputFormat }: 
         </section>
       )}
 
+      {/* --- NEW KO-FI SUPPORT BANNER --- */}
+      {converted.length > 0  && (
+        <section className="w-full max-w-lg mx-auto mt-6 bg-zinc-800/40 border border-purple-500/20 rounded-2xl p-6 text-center shadow-lg animate-fade-in-up">
+          <h3 className="text-gray-100 font-semibold mb-2 text-lg">
+            ConvertIno is 100% free and unlimited forever. 🚀
+          </h3>
+          <p className="text-sm text-gray-400 mb-5 leading-relaxed">
+            We don't run annoying ads or charge subscriptions. If this tool saved you time today, consider buying us a coffee to help cover the server costs and keep the project alive!
+          </p>
+          <a 
+            href="https://ko-fi.com/W7W36RUO9" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center gap-2 bg-[#C14AE8] hover:bg-[#a93fcb] text-white px-6 py-2.5 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[#C14AE8]/20 focus:outline-none focus:ring-2 focus:ring-[#C14AE8] focus:ring-offset-2 focus:ring-offset-zinc-900"
+          >
+            {/* Native Ko-fi Cup SVG for perfect scaling */}
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.143h.125s2.321.233 4.167-2.31c1.371-1.895 2.335-5.187 2.358-5.197zM20.301 12.3c-1.22.951-2.476.993-2.476.993h-.146v-5.26h.22c.983 0 2.227.173 2.825 1.152.492.81.42 2.292-.423 3.115z" />
+            </svg>
+            Support us on Ko-fi
+          </a>
+        </section>
+      )}
+      {/* --------------------------------- */}
+
       {/* Download Section */}
       {converted.length > 0 && (
         <section className="flex justify-center">
