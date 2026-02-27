@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
+
 // UPGRADED SEO METADATA
 export const metadata: Metadata = {
   title: 'ConvertIno | Free Unlimited Image Converter',
@@ -56,6 +57,19 @@ export default function RootLayout({
       <body className="bg-zinc-900 text-gray-100 min-h-screen transition-colors antialiased flex flex-col"
             suppressHydrationWarning>
         
+
+        {/* MICROSOFT CLARITY */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vnu65fynnt");
+          `}
+        </Script>
+
+
         {/* GOOGLE ANALYTICS */}
         <Script 
           strategy="afterInteractive" 
