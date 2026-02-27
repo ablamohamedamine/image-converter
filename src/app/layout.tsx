@@ -106,7 +106,8 @@ export default function RootLayout({
         </main>
         
         <footer className="w-full border-t border-zinc-800 bg-zinc-900/80 text-center py-4 text-xs text-gray-400 mt-8">
-          Made with ❤️ by <a href="https://www.linkedin.com/in/billal-chami/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition">Billal Chami</a>
+          Made with ❤️ by <a href="https://www.linkedin.com/in/billal-chami/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition">Billal Chami </a>
+           &  <a href="https://ablamohamedamine.com/" target="_blank" rel="dofollow" className="text-purple-400 hover:text-purple-300 transition">Mohamed Amine Abla</a>
         </footer>
         
         <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover />

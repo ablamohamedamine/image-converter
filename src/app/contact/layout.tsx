@@ -8,7 +8,8 @@ export const metadata: Metadata = {
     'ConvertIno support',
     'image converter feedback',
     'web developer contact',
-    'Billal Chami contact'
+    'Billal Chami contact',
+    'Mohamed Amine Abla contact'
   ].join(', '),
   openGraph: {
     title: 'Contact ConvertIno',
