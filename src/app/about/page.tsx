@@ -91,7 +91,7 @@ export default function AboutPage() {
                   I graduated from the Microverse software engineering program, where I spent hundreds of hours pair-programming remotely with an international team of developers.
                 </p>
                 <p className="text-gray-300 leading-relaxed mt-4">
-                  I built <strong>ConvertIno</strong> to provide a fast, privacy-first, and completely free solution for developers and designers who need high-quality image processing without the hassle of accounts or server uploads.
+                  I built <strong>Convertino</strong> to provide a fast, privacy-first, and completely free solution for developers and designers who need high-quality image processing without the hassle of accounts or server uploads.
                 </p>
               </div>
 
@@ -158,7 +158,7 @@ export default function AboutPage() {
                   Hi! I am a WordPress developer and a strategic thinker highly skilled in communication. With a deep background in mathematics, I thrive on precision and logic, focusing on architecting and launching high-quality digital projects over routine execution.
                 </p>
                 <p className="text-gray-300 leading-relaxed mt-4">
-                  My role in <strong>ConvertIno</strong> ensures that the tool isn't just functional, but genuinely aligned with the needs of users, delivering a flawless and frictionless experience from end to end.
+                  My role in <strong>Convertino</strong> ensures that the tool isn't just functional, but genuinely aligned with the needs of users, delivering a flawless and frictionless experience from end to end.
                 </p>
               </div>
 
@@ -178,7 +178,7 @@ export default function AboutPage() {
                   <span className="text-xl">⚡</span> Fun Fact
                 </h4>
                 <p className="text-gray-300 italic">
-                  "I wake up at 4:30 AM every day to crush my goals, and I have a secret passion for writing poetry and rap with deep meanings."
+                  "I have a secret passion for writing poetry and rap with deep meanings."
                 </p>
               </div>
             </div>

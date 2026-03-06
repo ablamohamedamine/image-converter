@@ -32,6 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${inputFormat} to ${outputFormat}`,
       `${inputFormat} to ${outputFormat} converter`,
       `free ${inputFormat} to ${outputFormat} online`,
+      `best ${inputFormat} to ${outputFormat} converter without losing quality`,
+      `high resolution ${inputFormat} to ${outputFormat} batch converter`,
+      `compress and convert ${inputFormat} to ${outputFormat} online`,
       'image converter',
       'no registration',
       inputFormat,
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: pageData.title,
       description: pageData.description,
       url: `https://convertino.xyz/convert/${slug}`,
-      siteName: 'ConvertIno',
+      siteName: 'Convertino',
       type: 'website',
     },
     twitter: {

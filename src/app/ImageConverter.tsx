@@ -556,7 +556,7 @@ export default function ImageConverter({ fixedInputFormat, fixedOutputFormat }: 
       {converted.length > 0  && (
         <section className="w-full max-w-lg mx-auto mt-6 bg-zinc-800/40 border border-purple-500/20 rounded-2xl p-6 text-center shadow-lg animate-fade-in-up">
           <h3 className="text-gray-100 font-semibold mb-2 text-lg">
-            ConvertIno is 100% free and unlimited forever. 🚀
+            Convertino is 100% free and unlimited forever. 🚀
           </h3>
           <p className="text-sm text-gray-400 mb-5 leading-relaxed">
             We don't run annoying ads or charge subscriptions. If this tool saved you time today, consider buying us a coffee to help cover the server costs and keep the project alive!

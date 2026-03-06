@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About ConvertIno | The Developers Behind the Tool',
-  description: 'Learn more about ConvertIno and its creators, Billal Chami and Mohamed Amine Abla. Discover why we built a 100% free, secure, client-side image converter.',
+  title: 'About Convertino | The Developers Behind the Tool',
+  description: 'Learn more about Convertino and its creators, Billal Chami and Mohamed Amine Abla. Discover why we built a 100% free, secure, client-side image converter.',
   keywords: [
-    'about ConvertIno',
+    'about Convertino',
     'Billal Chami',
     'Mohamed Amine Abla',
     'free image converter creators',
@@ -13,15 +13,15 @@ export const metadata: Metadata = {
     'privacy first image converter'
   ].join(', '),
   openGraph: {
-    title: 'About ConvertIno | The Developers Behind the Tool',
+    title: 'About Convertino | The Developers Behind the Tool',
     description: 'Discover why we built a 100% free, secure, client-side image converter.',
     url: 'https://convertino.xyz/about',
-    siteName: 'ConvertIno',
+    siteName: 'Convertino',
     type: 'profile',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About ConvertIno',
+    title: 'About Convertino',
     description: 'Discover the story behind the ultimate free image converter.',
   }
 };

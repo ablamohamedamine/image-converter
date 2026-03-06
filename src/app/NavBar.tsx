@@ -39,7 +39,7 @@ export default function NavBar() {
             className="w-8 h-8 rounded group-hover:scale-110 transition-transform duration-300" 
           />
           <span className="font-bold text-xl tracking-tight text-white group-hover:text-blue-400 transition-colors">
-            ConvertIno
+            Convertino
           </span>
         </Link>
         

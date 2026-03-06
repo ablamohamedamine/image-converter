@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 // UPGRADED SEO METADATA
 export const metadata: Metadata = {
-  title: 'ConvertIno | Free Unlimited Image Converter',
+  title: 'Convertino | Free Unlimited Image Converter',
   description: 'Fast, secure, and 100% free online image converter. Convert WebP, PNG, JPEG, AVIF, and SVG instantly with no registration, no email, and no limits.',
   keywords: [
     'image converter',
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
     'webp', 'png', 'jpeg', 'avif', 'svg'
   ].join(', '),
   openGraph: {
-    title: 'ConvertIno | Free Unlimited Image Converter',
+    title: 'Convertino | Free Unlimited Image Converter',
     description: 'Convert WebP, PNG, JPEG, AVIF, and SVG instantly with no registration, no email, and no limits.',
     url: 'https://convertino.xyz', 
-    siteName: 'ConvertIno',
+    siteName: 'Convertino',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ConvertIno | Free Unlimited Image Converter',
+    title: 'Convertino | Free Unlimited Image Converter',
     description: 'Fast, secure, and 100% free online image converter. No registration required.',
   }
 };

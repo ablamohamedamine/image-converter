@@ -182,7 +182,7 @@ export default function Home() {
           
           <div className="space-y-6 text-gray-300 leading-relaxed">
             <p>
-              Welcome to <strong>ConvertIno</strong>, your ultimate destination for fast, secure, and limitless image conversion. 
+              Welcome to <strong>Convertino</strong>, your ultimate destination for fast, secure, and limitless image conversion. 
               Whether you need to convert high-resolution photos, optimize web assets, or simply change an image format, 
               our completely free tool has you covered. Built for developers, designers, and everyday users.
             </p>
@@ -191,7 +191,7 @@ export default function Home() {
               No Registration or Email Required
             </h3>
             <p>
-              We believe in frictionless tools. With ConvertIno, you can start converting your images instantly <strong>without signing up, creating an account, or providing your email address</strong>. 
+              We believe in frictionless tools. With Convertino, you can start converting your images instantly <strong>without signing up, creating an account, or providing your email address</strong>. 
               There are no hidden paywalls, no annoying newsletters, and no login barriers—just drag and drop your files to get started right away.
             </p>
 
@@ -199,7 +199,7 @@ export default function Home() {
               Convert WebP, PNG, JPEG, AVIF, and SVG effortlessly
             </h3>
             <p>
-              Modern web development and digital design require modern image formats. ConvertIno allows you to seamlessly transition between 
+              Modern web development and digital design require modern image formats. Convertino allows you to seamlessly transition between 
               standard formats like <strong>JPEG</strong> and <strong>PNG</strong>, to next-generation formats like <strong>WebP</strong> and <strong>AVIF</strong>. 
               By utilizing our advanced compression algorithms, you can significantly reduce file sizes without sacrificing visual quality—boosting your website's SEO and performance.
             </p>
@@ -209,7 +209,7 @@ export default function Home() {
             </h3>
             <p>
               Unlike traditional image converters that force you to upload your sensitive files to a remote cloud server, 
-              ConvertIno processes everything directly inside your web browser. This means your files <strong>never leave your device</strong>. 
+              Convertino processes everything directly inside your web browser. This means your files <strong>never leave your device</strong>. 
               Enjoy lightning-fast conversions with absolute peace of mind knowing your privacy is fully protected and there are no file-size limits holding you back.
             </p>
           </div>
