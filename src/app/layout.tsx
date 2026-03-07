@@ -27,8 +27,10 @@ export const metadata: Metadata = {
     'image converter',
     'free image converter',
     'free online image converter',
-    'convert png to webp',
-    'convert jpeg to avif',
+    'convert webp to jpg',
+    'convert webp to png',
+    'convert avif to jpg',
+    'convert avif to png',
     'bulk image compression',
     'no registration image converter',
     'webp', 'png', 'jpeg', 'avif', 'svg'
