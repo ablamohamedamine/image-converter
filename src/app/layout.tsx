@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   keywords: [
     'image converter',
     'free image converter',
+    'free online image converter',
     'convert png to webp',
     'convert jpeg to avif',
     'bulk image compression',
     'no registration image converter',
-    'client side image converter',
     'webp', 'png', 'jpeg', 'avif', 'svg'
   ].join(', '),
   openGraph: {
